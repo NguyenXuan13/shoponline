@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Xml.Linq;
 
 namespace ShopOnline.Model.Models
 {
@@ -24,7 +23,9 @@ namespace ShopOnline.Model.Models
         public int CategoryID { get; set; }
         public string Image { get; set; }
 
-        public XElement MoreImage { get; set; }
+        [Column(TypeName = "xml")]
+        public string MoreImage { get; set; }
+
         public decimal Price { get; set; }
 
         public decimal? PromotionPrice { get; set; }
