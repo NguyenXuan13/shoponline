@@ -45,9 +45,14 @@ namespace ShopOnline.Data.Infrastructure
             dataContext.Entry(entity).State = EntityState.Modified;
         }
 
-        public virtual void Delete(T entity)
+        //public virtual void Delete(T entity)
+        //{
+        //    dbSet.Remove(entity);
+        //}
+        public virtual void Delete(int id)
         {
-            dbSet.Remove(entity);
+            var enity = dbSet.Find(id);
+            dbSet.Remove(enity);
         }
 
         public virtual void DeleteMulti(Expression<Func<T, bool>> where)
