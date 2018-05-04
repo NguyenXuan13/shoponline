@@ -3,7 +3,7 @@ using ShopOnline.Model.Models;
 
 namespace ShopOnline.Data.Respositories
 {
-    public interface IMenuGroupRepository { }
+    public interface IMenuGroupRepository : IRepository<MenuGroup> { }
 
     public class MenuGroupRepository : RepositoryBase<MenuGroup>, IMenuGroupRepository
     {

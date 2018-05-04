@@ -3,7 +3,7 @@ using ShopOnline.Model.Models;
 
 namespace ShopOnline.Data.Respositories
 {
-    public interface IPostRepository { }
+    public interface IPostRepository : IRepository<Post> { }
 
     public class PostRepository : RepositoryBase<Post>, IPostRepository
     {
