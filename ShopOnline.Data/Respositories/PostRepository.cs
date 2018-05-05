@@ -4,7 +4,6 @@ using System;
 namespace ShopOnline.Data.Respositories
 {
     public interface IPostRepository {
-        
     }
 
     public class PostRepository : RepositoryBase<Post>, IPostRepository
