@@ -1,7 +1,6 @@
 ﻿using ShopOnline.Data.Infrastructure;
 using ShopOnline.Data.Respositories;
 using ShopOnline.Model.Models;
-using System;
 using System.Collections.Generic;
 
 namespace ShopOnline.Service
@@ -17,10 +16,11 @@ namespace ShopOnline.Service
         IEnumerable<Post> GetAll();
 
         IEnumerable<Post> GetAllPaging(int page, int pageSize, out int totalRow);
+        IEnumerable<Post> GetAllByCategoryPaging(int categoryId,int page, int pageSize, out int totalRow);
 
         Post GetById(int id);
 
-        IEnumerable<Post> GetAllByTagPaging(int page, int pageSize, out int totalRow);
+        IEnumerable<Post> GetAllByTagPaging(string tag, int page, int pageSize, out int totalRow);
 
         void SaveChange();
     }
@@ -38,42 +38,49 @@ namespace ShopOnline.Service
 
         public void Add(Post post)
         {
-            throw new NotImplementedException();
+            _postReponsitory.Add(post);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _postReponsitory.Delete(id);
         }
 
         public IEnumerable<Post> GetAll()
         {
-            throw new NotImplementedException();
+            //có thể lấy ra cả post và category tương ứng
+            return _postReponsitory.GetAll(new string[] { "PostCategory" });
         }
 
-        public IEnumerable<Post> GetAllByTagPaging(int page, int pageSize, out int totalRow)
+        public IEnumerable<Post> GetAllByCategoryPaging(int categoryId, int page, int pageSize, out int totalRow)
         {
-            throw new NotImplementedException();
+            return _postReponsitory.GetMultiPaging(x => x.Status && x.CategoryID == categoryId, out totalRow, page, pageSize,new string[] { "PostCategory" });
+        }
+
+        public IEnumerable<Post> GetAllByTagPaging(string tag, int page, int pageSize, out int totalRow)
+        {
+            //Lấy tất cả danh sách Post bằng Tag 
+            return _postReponsitory.GetAllByTag(tag, page, pageSize, out totalRow);
         }
 
         public IEnumerable<Post> GetAllPaging(int page, int pageSize, out int totalRow)
         {
-            throw new NotImplementedException();
+            return _postReponsitory.GetMultiPaging(x => x.Status, out totalRow, page, pageSize);
         }
 
         public Post GetById(int id)
         {
-            throw new NotImplementedException();
+            return _postReponsitory.GetSingleById(id);
         }
 
         public void SaveChange()
         {
-            throw new NotImplementedException();
+            _unitOfWork.Commit();
         }
 
         public void Update(Post post)
         {
-            throw new NotImplementedException();
+            _postReponsitory.Update(post);
         }
     }
 }
