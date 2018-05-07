@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ShopOnline.Data.Respositories
 {
-    public interface IProductRepository
+    public interface IProductRepository:IRepository<Product>
     {
 
     }
