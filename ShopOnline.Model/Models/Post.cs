@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace ShopOnline.Model.Models
 {
     [Table("Posts")]
-    public class Post
+    public class Post : AudiTable
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
