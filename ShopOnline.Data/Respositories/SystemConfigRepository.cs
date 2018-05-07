@@ -3,7 +3,8 @@ using ShopOnline.Model.Models;
 
 namespace ShopOnline.Data.Respositories
 {
-    public interface ISystemConfigRepository { }
+    public interface ISystemConfigRepository:IRepository<SystemConfig>
+    { }
 
     public class SystemConfigRepository : RepositoryBase<SystemConfig>, ISystemConfigRepository
     {

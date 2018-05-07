@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ShopOnline.Data.Respositories
 {
-    public interface ISupportOnlineRepository
+    public interface ISupportOnlineRepository:IRepository<SupportOnline>
     {
 
     }
