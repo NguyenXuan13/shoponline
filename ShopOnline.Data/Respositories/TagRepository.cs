@@ -3,7 +3,8 @@ using ShopOnline.Model.Models;
 
 namespace ShopOnline.Data.Respositories
 {
-    public interface ITagRepository { }
+    public interface ITagRepository:IRepository<Tag>
+    { }
 
     public class TagRepository : RepositoryBase<Tag>, ITagRepository
     {

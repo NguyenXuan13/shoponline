@@ -3,7 +3,7 @@ using ShopOnline.Model.Models;
 
 namespace ShopOnline.Data.Respositories
 {
-    public interface IOrderRepository { }
+    public interface IOrderRepository : IRepository<Order>{ }
 
     public class OrderRepository : RepositoryBase<Order>, IOrderRepository
     {
