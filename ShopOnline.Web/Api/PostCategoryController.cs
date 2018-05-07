@@ -1,13 +1,10 @@
-﻿using System;
+﻿using ShopOnline.Web.Infrastructure.Core;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace ShopOnline.Web.Api
 {
-    public class PostCategoryController : ApiController
+    public class PostCategoryController : ApiControllerBase
     {
         // GET api/<controller>
         public IEnumerable<string> Get()
