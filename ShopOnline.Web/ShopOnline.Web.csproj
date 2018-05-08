@@ -218,20 +218,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Areas\Admin\Views\web.config" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\respond.js" />
-    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Plugins\angular\angular-csp.css" />
+    <Content Include="Scripts\Plugins\angular\angular.js" />
+    <Content Include="Scripts\Plugins\angular\angular.min.js" />
+    <Content Include="Scripts\Plugins\angular\index.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -240,12 +232,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -254,13 +240,22 @@
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Assets\Admin\" />
     <Folder Include="Assets\Client\" />
+    <Folder Include="fonts\" />
     <Folder Include="Infrastructure\Extensions\" />
     <Folder Include="Models\" />
-    <Folder Include="Scripts\Plugins\" />
     <Folder Include="Scripts\spa\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bower.json" />
+    <Content Include=".bowerrc" />
     <None Include="packages.config" />
+    <Content Include="Scripts\Plugins\angular\.bower.json" />
+    <Content Include="Scripts\Plugins\angular\angular.min.js.gzip" />
+    <Content Include="Scripts\Plugins\angular\angular.min.js.map" />
+    <Content Include="Scripts\Plugins\angular\bower.json" />
+    <Content Include="Scripts\Plugins\angular\LICENSE.md" />
+    <Content Include="Scripts\Plugins\angular\package.json" />
+    <Content Include="Scripts\Plugins\angular\README.md" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ShopOnline.Common\ShopOnline.Common.csproj">
