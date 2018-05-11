@@ -12,12 +12,29 @@ namespace ShopOnline.Web.Api
     public class PostCategoryController : ApiControllerBase
     {
         IPostCategoryService _postCategoryService;
-        public PostCategoryController(IErrorService errorService, IPostCategoryService postCategoryService): 
+        public PostCategoryController(IErrorService errorService, IPostCategoryService postCategoryService) :
             base(errorService)
         {
             this._postCategoryService = postCategoryService;
 
         }
+
+        [Route("getall")]
+        public HttpResponseMessage Get(HttpRequestMessage request)
+        {
+            return CreateHttpReponse(request, () =>
+            {
+
+                var listcategory = _postCategoryService.GetAll();
+
+
+                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, listcategory);
+
+                return response;
+            });
+        }
+
+
         public HttpResponseMessage Post(HttpRequestMessage request, PostCategory postCategory)
         {
             return CreateHttpReponse(request, () =>
@@ -29,7 +46,7 @@ namespace ShopOnline.Web.Api
                 }
                 else
                 {
-                   var category = _postCategoryService.Add(postCategory);
+                    var category = _postCategoryService.Add(postCategory);
                     _postCategoryService.Save();
 
                     response = request.CreateResponse(HttpStatusCode.Created, category);
@@ -60,7 +77,6 @@ namespace ShopOnline.Web.Api
         }
 
 
-
         public HttpResponseMessage Delete(HttpRequestMessage request, int id)
         {
             return CreateHttpReponse(request, () =>
@@ -80,26 +96,7 @@ namespace ShopOnline.Web.Api
                 return response;
             });
         }
-        [Route("getall")]
-        public HttpResponseMessage Get(HttpRequestMessage request)
-        {
-            return CreateHttpReponse(request, () =>
-            {
-                HttpResponseMessage response = null;
-                if (ModelState.IsValid)
-                {
-                    request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-                }
-                else
-                {
-                    var listcategory = _postCategoryService.GetAll();
-                    
 
-                    response = request.CreateResponse(HttpStatusCode.OK, listcategory);
-                }
-                return response;
-            });
-        }
 
     }
 }
